@@ -1,0 +1,38 @@
+image: gcc
+
+stages:
+  - build
+  - build-tests
+  - test
+
+build:
+  stage: build
+  script: 
+    - make
+  artifacts:
+    paths:
+      - "tp3"
+    expire_in: 1 week
+  cache:
+    paths:
+      - "*.o"
+      - "tp3"
+
+build-tests:
+  stage: build-tests
+  script:
+    - cd tests
+    - make
+  artifacts:
+    paths:
+      - "tests/tests"
+    expire_in: 1 week
+  cache:
+    paths:
+      - "tests/*.o"
+      - "tests/tests"
+
+run-tests:
+  stage: test
+  script:
+    - tests/tests

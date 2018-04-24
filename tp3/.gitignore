@@ -1,0 +1,7 @@
+.DS_STORE
+*.zip
+b*_*
+tp3-H18.odt
+tp3
+tests/tests
+tests/tests-main.o
